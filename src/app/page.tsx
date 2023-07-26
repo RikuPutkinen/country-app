@@ -1,5 +1,10 @@
+import CountryGrid from "./components/country-grid";
+
 export default function Home() {
   return (
-    <h1>Hi</h1>
+    <>
+      <h1>Countries</h1>
+      <CountryGrid />
+    </>
   )
 }
