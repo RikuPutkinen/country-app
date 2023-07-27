@@ -9,7 +9,8 @@ export default function CountryCard({ countryData } : { countryData : CountryDat
     region,
     capital,
     population,
-    flags
+    flags,
+    area
   } = countryData;
 
   return (
@@ -19,6 +20,7 @@ export default function CountryCard({ countryData } : { countryData : CountryDat
         <h2>{name.official}</h2>
         <p><span className="font-bold">Capital: </span>{capital}</p>
         <p><span className="font-bold">Region: </span>{region}</p>
+        <p><span className="font-bold">Area: </span>{area} km<sup>2</sup></p>
         <p><span className="font-bold">Population: </span>{population}</p>
       </Link>
     </li>

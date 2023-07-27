@@ -11,5 +11,6 @@ export default interface CountryDataObj {
     },
     capital: string[],
     region: string,
-    population: number 
+    population: number,
+    area: number
 }
