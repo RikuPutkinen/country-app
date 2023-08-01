@@ -43,17 +43,18 @@ export default function CountryGrid() {
   
   return (
     <div className='m-2'>
-      <div className='flex gap-2 mb-6'>
+      <div className='flex gap-2 mb-6 items-center'>
        
         <input
-        name='query'
-        type='text'
-        placeholder='Search'
-        value={query}
-        onChange={e => setQuery(e.target.value)}
+          className='border-b-2 border-gray-400 text-lg p-1'
+          name='query'
+          type='text'
+          placeholder='Filter countries'
+          value={query}
+          onChange={e => setQuery(e.target.value)}
         />
 
-        <select name='region' onChange={e => setRegion(e.target.value)}>
+        <select name='region' onChange={e => setRegion(e.target.value)} className='text-lg p-2 rounded-md'>
           <option value='all'>All Regions</option>
           <option value='africa'>Africa</option>
           <option value='americas'>Americas</option>
@@ -62,16 +63,15 @@ export default function CountryGrid() {
           <option value='oceania'>Oceania</option>
         </select>
 
-        <label htmlFor="sort" className='flex gap-1'> Sort by
-          <select name='sort' onChange={e => setSort(e.target.value)}>
-            <option value='a-z'>Name (A-Z)</option>
-            <option value='z-a'>Name (Z-A)</option>
-            <option value='lowest-population'>Lowest population</option>
-            <option value='highest-population'>Highest population</option>
-            <option value='lowest-area'>Lowest area</option>
-            <option value='highest-area'>Highest area</option>
-          </select>
-        </label>
+        <label htmlFor="sort" className='text-lg'>Sort by</label>
+        <select name='sort' onChange={e => setSort(e.target.value)} className='text-lg p-2 rounded-md'>
+          <option value='a-z'>Name (A-Z)</option>
+          <option value='z-a'>Name (Z-A)</option>
+          <option value='lowest-population'>Lowest population</option>
+          <option value='highest-population'>Highest population</option>
+          <option value='lowest-area'>Lowest area</option>
+          <option value='highest-area'>Highest area</option>
+        </select>
 
       </div>
       <ul className='grid grid-flow-row gap-4 grid-cols-[repeat(auto-fill,_minmax(200px,_1fr))]'>

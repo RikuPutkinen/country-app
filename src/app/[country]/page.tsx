@@ -31,7 +31,7 @@ async function getCountryName(cca3: string) {
   return data.name.official;
 }
 
-async function createCountryLinks(cca3s: string[]) {
+/* async function createCountryLinks(cca3s: string[]) {
   const names = cca3s.map(async cca3 => {
     const res = await fetch(`https://restcountries.com/v3.1/alpha/${cca3}?fields=name`);
     const data: CountryNameObj = await res.json();
@@ -42,7 +42,7 @@ async function createCountryLinks(cca3s: string[]) {
     )
   })
   return names.join(', ');
-}
+} */
 
 async function getCountryData(countryName: string) {
   const res = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true&fields=flags,area,borders,currencies,independent,languages,name,population,region,timezones,capital`);
@@ -78,9 +78,9 @@ export default async function Page({ params }: { params: { country: string}}) {
   });
 
   return (
-  <div className="max-w-screen-lg mx-auto bg-gray-900 py-20 px-16">
-    <h1>{name.official}</h1>
-    <div className="flex flex-row-reverse justify-between gap-6">
+  <div className="max-w-screen-lg bg-gray-50 shadow-md dark:bg-gray-800 mx-auto my-10 py-10 px-4 sm:px-16">
+    <h1 className="text-2xl mb-4">{name.official}</h1>
+    <div className="flex flex-col sm:flex-row-reverse justify-between gap-6">
       <div>
         <Image
           src={flags.png}
@@ -90,15 +90,18 @@ export default async function Page({ params }: { params: { country: string}}) {
         />
       </div>
       <div>
-        <p><span>Capital: </span>{capital[0]}</p>
-        <p><span>Population: </span>{formatting.format(population)}</p>
-        <p><span>Languages: </span>{Object.values(languages).join(', ')}</p>
-        <p><span>Currencies: </span>{Object.values(currencies).map(c => c.name).join(', ')}</p>
-        <p><span>Independent: </span>{independent ? "Yes" : "No"}</p>
-        <p><span>Area: </span>{formatting.format(area)} km<sup>2</sup></p>
-        <p><span>Region: </span>{region}</p>
-        <p><span>Timezones: </span>{timezones.join(', ')}</p>
-        <p className="borders"><span>Border Countries: </span>{(await borderLinks).length === 0 ? "None" : borderLinks}</p>
+        <p><span className="font-bold">Capital: </span>{capital[0] || "No capital"}</p>
+        <p><span className="font-bold">Population: </span>{formatting.format(population)}</p>
+        <p><span className="font-bold">Languages: </span>{Object.values(languages).join(', ') || "None"}</p>
+        <p><span className="font-bold">Currencies: </span>{Object.values(currencies).map(c => c.name).join(', ') || "None"}</p>
+        <p><span className="font-bold">Independent: </span>{independent ? "Yes" : "No"}</p>
+        <p><span className="font-bold">Area: </span>{formatting.format(area)} km<sup>2</sup></p>
+        <p><span className="font-bold">Region: </span>{region}</p>
+        <div className="flex gap-1">
+          <p className="font-bold">Timezones: </p>
+          <p>{timezones.join(', ')}</p>
+        </div>
+        <p className="borders"><span className="font-bold">Border Countries: </span>{(await borderLinks).length === 0 ? "None" : borderLinks}</p>
       </div>
     </div>
   </div>
