@@ -31,19 +31,6 @@ async function getCountryName(cca3: string) {
   return data.name.official;
 }
 
-/* async function createCountryLinks(cca3s: string[]) {
-  const names = cca3s.map(async cca3 => {
-    const res = await fetch(`https://restcountries.com/v3.1/alpha/${cca3}?fields=name`);
-    const data: CountryNameObj = await res.json();
-    const name = await data.name.official;
-    //const name = await getCountryName(cca3);
-    return (
-      <Link key={name} href={`/${name}`}>{name}</Link>
-    )
-  })
-  return names.join(', ');
-} */
-
 async function getCountryData(countryName: string) {
   const res = await fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true&fields=flags,area,borders,currencies,independent,languages,name,population,region,timezones,capital`);
   return res.json();
