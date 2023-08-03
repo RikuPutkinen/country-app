@@ -22,7 +22,10 @@ export default function Navbar() {
 
   return (
     <nav className="text-xl flex justify-between px-2 py-3 bg-gray-100 dark:bg-gray-900 shadow-md">
-      <Link href={'/'} className="hover:underline">Country App</Link>
+      <div className="flex gap-8">
+        <Link href={'/'} className="hover:underline">Country App</Link>
+        <Link href={'/compare'} className="underline">Compare countries</Link>
+      </div>
       <button onClick={() => toggleTheme(theme)}>{theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}</button>
     </nav>
   )
