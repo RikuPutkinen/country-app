@@ -1,6 +1,7 @@
 import CountryDataObj from "@/types/country-data-obj";
 import Link from "next/link";
 import Image from "next/image";
+import NotFound from "@/app/not-found";
 
 interface DataOjb extends CountryDataObj {
   borders: string[],
@@ -38,6 +39,8 @@ async function getCountryData(countryName: string) {
 
 export default async function Page({ params }: { params: { country: string}}) {
   const countryData: DataOjb[] = await getCountryData(params.country);
+
+  if (!countryData[0]) return <NotFound />
 
   const {
     flags,
