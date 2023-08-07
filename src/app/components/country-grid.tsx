@@ -3,8 +3,7 @@ import CountryDataObj from '@/types/country-data-obj';
 import { useState } from 'react';
 import useSWR from 'swr';
 import CountryCard from './country-card';
-
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+import fetcher from '../lib/fetcher';
 
 export default function CountryGrid() {
   const [query, setQuery] = useState('');

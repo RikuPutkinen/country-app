@@ -2,6 +2,7 @@
 
 import useSWR from 'swr';
 import ComparisonContainer from '../components/comparison-container';
+import fetcher from '../lib/fetcher';
 
 interface CountryDataObj {
   flags: {
@@ -29,8 +30,6 @@ interface CountryDataObj {
     }
   }
 }
-
-const fetcher = (...args) => fetch(...args).then(res => res.json());
 
 export default function Page() {
   const { data, error, isLoading} = useSWR('https://restcountries.com/v3.1/all?fields=flags,area,currencies,independent,languages,name,population,region,timezones', fetcher);
