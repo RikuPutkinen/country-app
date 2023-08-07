@@ -46,12 +46,12 @@ export default function Page() {
   });
 
   return (
-    <>
+    <div>
       <h1 className='text-2xl m-2'>Compare countries</h1>
       <div className='grid grid-cols-2'>
         <ComparisonContainer countryDataArr={data} />
         <ComparisonContainer countryDataArr={data} />
       </div>
-    </>
+    </div>
   )
 }
