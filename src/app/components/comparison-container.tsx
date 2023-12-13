@@ -61,7 +61,7 @@ export default function ComparisonContainer({ countryDataArr }: { countryDataArr
             height={300}
             className="mb-4"
           />
-          <p><span className="font-bold">Country name: </span><Link href={`/${currentCountry.name.official}`} className="underline">{currentCountry.name.official}</Link></p>
+          <p><span className="font-bold">Country name: </span><Link href={`/countries/${currentCountry.name.official}`} className="underline">{currentCountry.name.official}</Link></p>
           <p><span className="font-bold">Region: </span>{currentCountry.region}</p>
           <p><span className="font-bold">Languages: </span>{Object.values(currentCountry.languages).join(', ') || "None"}</p>
           <p><span className="font-bold">Currencies: </span>{Object.values(currentCountry.currencies).map(c => c.name).join(', ') || "None"}</p>
