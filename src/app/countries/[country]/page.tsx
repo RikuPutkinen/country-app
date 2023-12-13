@@ -59,7 +59,7 @@ export default async function Page({ params }: { params: { country: string}}) {
   const borderCountries = borders.map(async cca3 => await getCountryName(cca3));
   const borderLinks = Promise.all(borderCountries)
     .then(arr => arr.map(name => {
-      return <Link key={name} href={`/${name}`}>{name}</Link>
+      return <Link key={name} href={`/countries/${name}`}>{name}</Link>
     }))
 
   const formatting = new Intl.NumberFormat("en-US", {
