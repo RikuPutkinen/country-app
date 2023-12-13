@@ -2,7 +2,7 @@
 # Country App
 
 A simple country app built with Next.js.
-Hosted [here](https://country-app-y7ik.vercel.app/)
+Hosted [on Vercel.](https://country-app-y7ik.vercel.app/)
 
 Country data from [REST Countries](https://restcountries.com)
 
